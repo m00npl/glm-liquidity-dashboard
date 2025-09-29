@@ -1,0 +1,7 @@
+services:
+  liquidity-dashboard:
+    image: moonplkr/liquidity-dashboard:latest
+    ports:
+      - "8877:80"
+    container_name: liquidity-dashboard
+    restart: unless-stopped

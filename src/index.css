@@ -1,0 +1,608 @@
+/* Arkiv Design System Typography */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Figma Design Styles */
+@import './styles/figma-design.css';
+
+:root {
+  /* Official Arkiv Colors from Components.pdf */
+
+  /* Orange Scale */
+  --orange-50: #fff1ec;
+  --orange-100: #ffd4c5;
+  --orange-200: #ffbfa9;
+  --orange-300: #fea282;
+  --orange-400: #fe906a;
+  --orange-500: #fe7445;
+  --orange-600: #e76a3f;
+  --orange-700: #b45231;
+  --orange-800: #8c4026;
+  --orange-900: #6b311d;
+
+  /* Grey Scale */
+  --grey-50: #ededed;
+  --grey-100: #c7c7c7;
+  --grey-200: #acacac;
+  --grey-300: #868686;
+  --grey-400: #6e6e6e;
+  --grey-500: #4a4a4a;
+  --grey-600: #434343;
+  --grey-700: #353535;
+  --grey-800: #292929;
+  --grey-900: #1f1f1f;
+
+  /* Blue Scale */
+  --blue-50: #e8e9f6;
+  --blue-100: #b7b9e4;
+  --blue-200: #9598d7;
+  --blue-300: #6468c5;
+  --blue-400: #464bba;
+  --blue-500: #181ea9;
+  --blue-600: #161b9a;
+  --blue-700: #111578;
+  --blue-800: #0d115d;
+  --blue-900: #0a0d47;
+
+  /* Brand Colors */
+  --color-primary: var(--blue-500);
+  --color-secondary: var(--orange-500);
+  --color-background: var(--orange-50);
+  --color-text-primary: var(--grey-900);
+  --color-text-secondary: var(--grey-600);
+  --color-stroke: var(--blue-50);
+}
+
+/* Use Space Grotesk as close alternative to Brutal Type */
+@font-face {
+  font-family: 'Brutal Type';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Space Grotesk Medium'), local('Space Grotesk'), local('Inter Medium'), local('Inter');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brutal Type Black';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Space Grotesk Bold'), local('Space Grotesk'), local('Inter Black'), local('Inter');
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Mono', 'Monaco', 'Fira Code', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #FFFFFF;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.dashboard {
+  background: white;
+  border-radius: 24px;
+  border: 2px solid var(--blue-50);
+  box-shadow: 0 20px 25px -5px rgba(31, 31, 31, 0.1), 0 10px 10px -5px rgba(31, 31, 31, 0.04);
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-500) 100%);
+  color: white;
+  padding: 32px 32px;
+  position: relative;
+}
+
+.header h1 {
+  margin: 0 0 12px 0;
+  font-family: 'Brutal Type', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header p {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  opacity: 0.95;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 40px 32px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--orange-50) 100%);
+  border-bottom: 2px solid var(--blue-50);
+}
+
+.stat-card {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(31, 31, 31, 0.08);
+  border: 2px solid var(--blue-50);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue-500) 0%, var(--orange-500) 100%);
+}
+
+.stat-card:hover {
+  box-shadow: 0 12px 25px rgba(31, 31, 31, 0.15);
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--blue-500);
+}
+
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--grey-600);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-family: 'Brutal Type', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 38px;
+  color: var(--grey-900);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  background: white;
+}
+
+thead {
+  background: linear-gradient(135deg, var(--orange-50) 0%, #ffffff 100%);
+  border-bottom: 3px solid var(--blue-50);
+}
+
+th, td {
+  padding: 20px 32px;
+  text-align: left;
+  border-bottom: 1px solid var(--blue-50);
+}
+
+th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--grey-800);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--grey-900);
+}
+
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+  background: var(--orange-50);
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clickable-row:hover {
+  background: linear-gradient(135deg, var(--orange-100) 0%, var(--orange-50) 100%) !important;
+  transform: scale(1.005);
+  box-shadow: 0 4px 15px rgba(31, 31, 31, 0.1);
+}
+
+.pair {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: var(--blue-600);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.chain {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: var(--grey-700);
+}
+
+.dex {
+  color: var(--blue-500);
+}
+
+.amount {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: var(--orange-600);
+}
+
+/* Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid;
+  transition: all 0.2s ease;
+}
+
+.badge-blue {
+  background: linear-gradient(135deg, var(--blue-100) 0%, #ffffff 100%);
+  color: var(--blue-700);
+  border-color: var(--blue-400);
+}
+
+.badge-orange {
+  background: linear-gradient(135deg, var(--orange-100) 0%, #ffffff 100%);
+  color: var(--orange-700);
+  border-color: var(--orange-400);
+}
+
+.badge-green {
+  background: linear-gradient(135deg, #dcfce7 0%, #ffffff 100%);
+  color: #16a34a;
+  border-color: #22c55e;
+}
+
+.badge-gray {
+  background: linear-gradient(135deg, var(--grey-200) 0%, #ffffff 100%);
+  color: var(--grey-700);
+  border-color: var(--grey-400);
+}
+
+/* Arkiv Typography System */
+.title-62 { font-family: 'Brutal Type', sans-serif; font-size: 62px; font-weight: 500; line-height: 74px; }
+.title-48 { font-family: 'Brutal Type', sans-serif; font-size: 48px; font-weight: 500; line-height: 58px; }
+.title-40 { font-family: 'Brutal Type', sans-serif; font-size: 40px; font-weight: 500; line-height: 48px; }
+.title-32 { font-family: 'Brutal Type', sans-serif; font-size: 32px; font-weight: 500; line-height: 38px; }
+.title-24 { font-family: 'Brutal Type', sans-serif; font-size: 24px; font-weight: 500; line-height: 28px; }
+.title-20 { font-family: 'Brutal Type', sans-serif; font-size: 20px; font-weight: 500; line-height: 24px; }
+.body-20 { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 400; line-height: 28px; }
+.body-16 { font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 400; line-height: 22px; }
+.body-14 { font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 400; line-height: 20px; }
+.body-12 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 400; line-height: 16px; }
+
+/* Arkiv Logo Component */
+.logo-arkiv {
+  position: relative;
+  width: 120px;
+  height: 32px;
+}
+
+.logo-text-arkiv {
+  font-family: 'Brutal Type Black', 'Brutal Type', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  color: #000000;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  white-space: nowrap;
+}
+
+/* Arkiv Navigation - Style z arkiv-website */
+.arkiv-header {
+  padding: 24px 16px;
+  position: sticky;
+  top: 24px;
+  z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .arkiv-header {
+    padding: 24px 60px;
+  }
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.arkiv-menu {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  height: 64px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+  margin-right: 16px;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+.nav-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--grey-600);
+}
+
+.mobile-menu-container {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-container {
+    display: none;
+  }
+}
+
+.mobile-menu-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 4px;
+}
+
+.hamburger-lines {
+  width: 18px;
+  height: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-lines span {
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-button:hover .hamburger-lines span {
+  background: var(--grey-600);
+}
+
+/* Desktop Dropdown Menu */
+.nav-item-group {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 224px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--grey-100);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 50;
+}
+
+.nav-item-group:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content {
+  padding: 12px 0;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 8px 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--grey-700);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown-link:hover {
+  color: #000000;
+  background: var(--grey-50);
+}
+
+/* Mobile Menu */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid var(--grey-100);
+}
+
+.mobile-close-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-content {
+  padding: 24px;
+}
+
+.mobile-menu-section {
+  margin-bottom: 32px;
+}
+
+.mobile-section-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--grey-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.mobile-menu-link {
+  display: block;
+  padding: 12px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #000000;
+  text-decoration: none;
+  border-bottom: 1px solid var(--grey-100);
+  transition: color 0.2s ease;
+}
+
+.mobile-menu-link:hover {
+  color: var(--grey-600);
+}
+
+.mobile-menu-link:last-child {
+  border-bottom: none;
+}
+
+/* Arkiv Button Components */
+.btn-primary {
+  background: var(--blue-500);
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.25), inset 0px -4px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--blue-600);
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
